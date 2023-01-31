@@ -92,4 +92,17 @@ public class Flower : MonoBehaviour
         return nectarTaken;
     }
 
+    /// <summary>
+    /// Resets the flower and refill the nectar.
+    /// </summary>
+    public void ResetFlower()
+    {
+        NectarAmount = 1f;
+
+        flowerCollider.gameObject.SetActive(true);
+        nectarCollider.gameObject.SetActive(true);
+
+        flowerMaterial.SetColor("_BaseColor", fullFlowerColor);
+    }
+
 }
