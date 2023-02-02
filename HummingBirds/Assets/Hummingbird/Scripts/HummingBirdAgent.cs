@@ -376,7 +376,7 @@ public class HummingBirdAgent : Agent
     private void TriggerEnterOrStay(Collider collider) 
     {
         // Colliding with nectar
-        if (collider.CompareTag("Nectar"))
+        if (collider.CompareTag("nectar"))
         {
             Vector3 closestPointToBeakTip = collider.ClosestPoint(beakTip.position);
 
