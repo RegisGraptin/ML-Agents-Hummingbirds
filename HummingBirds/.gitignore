@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # VS Code configuration
 .vscode/
+
+# Bin folder for build
+bin/
