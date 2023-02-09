@@ -10,6 +10,7 @@ This project is a great example of how Reinforcement Learning and Unity can be c
 
 
 ![bird environment](./birds.png)
+*Player competing with a ML agent to collect nectar from flowers.*
 
 
 # Environment description
@@ -26,46 +27,22 @@ The agent is given a reward for collecting nectar from flowers and a negative re
 
 By using these rewards and observations, the agent is able to make more intelligent decisions as it navigates the environment.
 
-
-
-The reward used for this environment will be:
-
-- Small positive reward each timestep if the bird's beak is touching the nectar (while there are still nectar)
-- Large negative reward for hitting the ground or boundaries of the training area
-
-
-
 ## Agent Action 
 
-The agent can interact with the environment by moving in the three direction and by rotating in all axes. We set a limit in the pitch rotation.
+The agent can interact with the environment by moving in the three direction and by rotating in all axes. We set a limit in the pitch rotation. 
 
-The agent drinks automatically nectar when his peak in contact wit the collider of the flower nectar.
-
-
-
-In this repository, we create a Unity environment for training ML-Agents and an Unity environment for competiting with a ML-Agent.
-
-
+When the adgent's beak is in contact with the collider of the flower nectar, the agent automatically drinks nectar. The flower has a limited amount of nectar.
 
 
 ## Environment Simplification
 
 Here, we simplify some aspects of the environment. After the agent drinks all the nectar, we remove the flower collider in order to help the agent to move away of the flower. It's simplify the learning process of our agent as it only requieres to go to a flower. It also allow the agent to not being stuck after collecting the nectar.
 
+Additionally, the agent do not have to "search" to the flower, as it have the distance and the direction of the nearest one. Thus, the agent do not need to fully explore the map to found flower. It only need to focus on the nectar collection.
 
+This simplification allows us to have an efficient agent. It will be interesting, in the future, to complexify the environment. I think that the flower collider issue will be an easy one compare to the flower reasearch issue. It could be interesting to change the perception of the agent, by using convolution neural networks.
 
+# Unity Environment
 
-# Project Complexity 
-
-In this project, we do not use the vision of the bird as it will be more complex. 
-> Note : In a more complex version it could be interesting to use convolutional neuronal networks.
-
-
-
-
-
-
-
-
-Multiple elements can be took into consideration to observe the environment. We can use different information from the objects as the **positions**, the **rotations**, the **velocities** or the **raycasts** (line shooted from a point and indicating if it hits anythings). Regarding the values of theses information, we can have **boolean**, **3D Vector**, **Quaternion** or **numerical value**.
+In this repository, we create a Unity environment for training ML-Agents and an Unity environment for competiting with a ML-Agent.
 
